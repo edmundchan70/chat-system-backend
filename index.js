@@ -1,19 +1,20 @@
-
+// index.js
 const express = require('express')
-const app = express();
-const cors = require('cors');
-const ports = process.env.PORT || 8080;
- 
-app.use(cors());
-app.use(express.json());
 
+const app = express()
+const PORT = 4000
 
-app.listen(ports , ()=>{
-    console.log('listening on port'+ports);
-})  
-
-app.get('/',async (req ,res) =>{
-    console.log(req);
-    res.send("YES");
+app.listen(PORT, () => {
+  console.log(`API listening on PORT ${PORT} `)
 })
-module.exports = app; 
+
+app.get('/', (req, res) => {
+  res.send('Hey this is my API running 🥳')
+})
+
+app.get('/about', (req, res) => {
+  res.send('This is my about route..... ')
+})
+
+// Export the Express API
+module.exports = app
