@@ -1,4 +1,4 @@
-const db_method = require('./api/db_method');
+
 const express = require('express')
 const app = express();
 const cors = require('cors');
@@ -11,3 +11,8 @@ app.use("/api/db_method" , db_method);
 app.listen(ports , ()=>{
     console.log('listening on port'+ports);
 })  
+
+app.get('/',async (req ,res) =>{
+    console.log(req);
+    res.send("YES");
+})
