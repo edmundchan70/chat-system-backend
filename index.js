@@ -1,13 +1,12 @@
-// index.js
-import {NowRequest , NowResponse} from "@vercel/node"
-const express = require('express')
 
+const express = require('express')
+const db = require('./api/routes/db');
 const app = express()
 const PORT = 4000
+ 
+app.use(express.json());
+app.use("/db",db);
 
-export default ( NowRequest , NowResponse) =>{
-    return res.json({message:"HELLO"});
-}
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT} `)
 })

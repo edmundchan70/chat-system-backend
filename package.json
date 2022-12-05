@@ -1,17 +1,17 @@
 {
     "name":"chat-system-API",
     "version":"1.0.0",
-
     "main": "index.js",
-
+    "engines": {
+      "node": "14.x"
+    },
     "scripts": {
-    "start": "vercel dev" , 
-    "deploy": "vercel deploy --prod"
+    "start": "node index.js " 
+    
   },
-  "devDependencies": {
-    "vercel": "^21.0.1"
-  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
   
-    "builds": [{ "src": "*/index.js", "use": "@now/node-server" }]
-
 }
