@@ -1,23 +1,18 @@
 
 const express = require('express')
-const db = require('./api/routes/db');
+const user = require('./api/routes/user');
 const app = express()
-const PORT = 4000
- 
+const PORT = 8080
+const cors = require('cors');
 app.use(express.json());
-app.use("/db",db);
-
+app.use("/users/",user);
+app.use(cors(
+  {origin: "http://localhost:3000"}
+));
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT} `)
 })
-
-app.get('/', (req, res) => {
-  res.send('Hey this is my API running 🥳')
-})
-
-app.get('/about', (req, res) => {
-  res.send('This is my about route..... ')
-})
+ 
 
 // Export the Express API
 module.exports = app
