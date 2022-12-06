@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 const cors = require("cors");
 const {pool} = require('../../database.js');
-const tableName = "USERINFO";
+
+const allowedUrl = require('../../config')
 router.use(cors({
-  origin:"http://localhost:3000"
+  origin: allowedUrl
 }))
 router.post("/addNewUser/", async (req, res) => {
    try{
